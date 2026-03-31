@@ -54,6 +54,24 @@
 
 > 当前版本是 **单服务启动**：启动一个 Node 服务即可，同时提供前端页面和后端 API。
 
+## CI / GitHub Actions
+
+项目已增加一条基础 CI：
+- 触发时机：`push main` / `pull_request`
+- 执行内容：
+  - `npm ci`
+  - `npm run smoke`
+
+`scripts/smoke-check.js` 会自动启动本地服务，并校验以下接口链路：
+- `GET /api/health`
+- `GET /api/todos`
+- `POST /api/todos`
+- `PUT /api/todos/:id`
+- `DELETE /api/todos/:id`
+
+这条 CI 目前的目标不是做完整测试覆盖，而是保证：
+**依赖可安装、服务能启动、核心 CRUD API 没坏。**
+
 ### 1）安装依赖
 
 ```bash

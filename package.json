@@ -4,7 +4,8 @@
   "private": true,
   "description": "A simple TodoList web app with a lightweight Node.js backend and file persistence.",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "smoke": "node scripts/smoke-check.js"
   },
   "dependencies": {
     "express": "^5.1.0"
